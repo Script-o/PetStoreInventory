@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROJECTS\\C#-Examples\\PetStoreInventory\\PetStoreInventory.csproj",
+      "projectUniqueName": "D:\\PROJECTS\\PetStoreInventory\\PetStoreInventory.csproj",
       "projectName": "PetStoreInventory",
-      "projectPath": "D:\\PROJECTS\\C#-Examples\\PetStoreInventory\\PetStoreInventory.csproj",
+      "projectPath": "D:\\PROJECTS\\PetStoreInventory\\PetStoreInventory.csproj",
       "packagesPath": "C:\\Users\\Joni\\.nuget\\packages\\",
-      "outputPath": "D:\\PROJECTS\\C#-Examples\\PetStoreInventory\\obj\\",
+      "outputPath": "D:\\PROJECTS\\PetStoreInventory\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Joni\\AppData\\Roaming\\NuGet\\NuGet.Config",
