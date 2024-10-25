@@ -1,12 +1,11 @@
 ﻿using System;
-using Templates;
+using PetStoreInventory;
 
-public class DogLeash : Product
+namespace PetStoreInventory
 {
-    public int LengthInches = 60;
-    public string Material = "Nylon";
-    public void Class1()
+    public class DogLeash : Product
     {
-        Product p1 = new Product() { Name = "Dog Leash", Price = 4.5M, Quantity = 5, Description = "Doggo leashes." };
+        public int LengthInches { get; set; }
+        public string Material { get; set; }
     }
 }

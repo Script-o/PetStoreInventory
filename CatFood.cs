@@ -1,8 +1,11 @@
 ﻿using System;
-using Templates;
+using PetStoreInventory;
 
-public class CatFood : Product
+namespace PetStoreInventory
 {
-    public required double WeightPounds { get; set; }
-    public required bool KittenFood { get; set; }
+    public class CatFood : Product
+    {
+        public double WeightPounds { get; set; }
+        public bool KittenFood { get; set; }
+    }
 }
