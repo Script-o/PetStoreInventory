@@ -17,6 +17,8 @@ namespace PetStoreInventory
                 Console.WriteLine("Press 1 to add a product");
                 Console.WriteLine("Press 2 to view a dog leash by name");
                 Console.WriteLine("Press 8 to view all products");
+                Console.WriteLine("Press 9 to view all in-stock products");
+                Console.WriteLine("Press 10 to view all out of stock products");
                 Console.WriteLine("Type 'exit' to quit");
                 userInput = Console.ReadLine();
 
@@ -188,7 +190,9 @@ namespace PetStoreInventory
                 else if (userInput == "2")
                 {
                     Console.WriteLine("Enter the name of the product you want to view.");
-                    var product = productLogic.GetDogLeashName(Console.ReadLine());
+                    var input = Console.ReadLine();
+                    var product = productLogic.GetDogLeashName(input);
+                    var discount = productLogic.GetDogLeashPrice(input);
                     if (product == null)
                     {
                         Console.WriteLine("Sorry, that product doesn't exist.");
@@ -196,11 +200,22 @@ namespace PetStoreInventory
                     else
                     {
                         Console.WriteLine(JsonSerializer.Serialize(product));
+                        Console.WriteLine($"Discounted Price= {discount.DiscountThisPrice()}");
                     }
                 }
                 else if (userInput == "8")
                 {
                     var product = productLogic.GetAllProducts();
+                    Console.WriteLine(JsonSerializer.Serialize(product));
+                }
+                else if (userInput == "9")
+                {
+                    var product = productLogic.GetOnlyInStockProducts();
+                    Console.WriteLine(JsonSerializer.Serialize(product));
+                }
+                else if (userInput == "10")
+                {
+                    var product = productLogic.GetOutOfStockProducts();
                     Console.WriteLine(JsonSerializer.Serialize(product));
                 }
                 else if (userInput.ToLower() == "exit")
