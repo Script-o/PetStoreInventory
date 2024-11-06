@@ -9,6 +9,7 @@ namespace PetStoreInventory
 		{
             AddProduct(new DogLeash { Name = "Leather Leash", Price = 26.99M, Quantity = 5 });
             AddProduct(new DogLeash { Name = "Bedazzled Leash", Price = 26.99M, Quantity = 0 });
+            AddProduct(new CatFood { Name = "Num Nums", Price = 3.99M, Quantity = 10 });
         }
 
         private List<Product> _products = new List<Product>();
@@ -49,6 +50,30 @@ namespace PetStoreInventory
             try
             {
                 return _dogLeash[name].Price;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
+        public CatFood GetCatFoodName(string name)
+        {
+            try
+            {
+                return _catFood[name];
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public decimal GetCatFoodPrice(string name)
+        {
+            try
+            {
+                return _catFood[name].Price;
             }
             catch (Exception ex)
             {

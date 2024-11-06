@@ -15,7 +15,7 @@ namespace PetStoreInventory
 
             while (userInput.ToLower() != "exit")
             {
-                Console.WriteLine("\n[1] Product, [2] Dog Leash, [8] All Products");
+                Console.WriteLine("\n[1] Insert Product, [2] View Product, [8] All Products");
                 Console.WriteLine("[9] In Stock, [10] Out of Stock, 'exit'");
                 userInput = Console.ReadLine();
 
@@ -108,18 +108,44 @@ namespace PetStoreInventory
                 }
                 else if (userInput == "2")
                 {
-                    Console.WriteLine("Enter the name of the product you want to view.");
+                    Console.WriteLine("Do you want to view a Cat Food or a Dog Leash?");
+                    Console.WriteLine("Enter \"cat\" or \"dog\"");
                     var input = Console.ReadLine();
-                    var product = productLogic.GetDogLeashName(input);
-                    var discount = productLogic.GetDogLeashPrice(input);
-                    if (product == null)
+                    if (input == "cat")
                     {
-                        Console.WriteLine("Sorry, that product doesn't exist.");
+                        Console.WriteLine("Enter the name of the Cat Food you want to view.");
+                        input = Console.ReadLine();
+                        var product = productLogic.GetCatFoodName(input);
+                        var discount = productLogic.GetCatFoodPrice(input);
+                        if (product == null)
+                        {
+                            Console.WriteLine("Sorry, that product doesn't exist.");
+                        }
+                        else
+                        {
+                            Console.WriteLine(JsonSerializer.Serialize(product));
+                            Console.WriteLine($"Discounted Price= {discount.DiscountThisPrice()}");
+                        }
+                    }
+                    else if (input == "dog")
+                    {
+                        Console.WriteLine("Enter the name of the Dog Leash you want to view.");
+                        input = Console.ReadLine();
+                        var product = productLogic.GetDogLeashName(input);
+                        var discount = productLogic.GetDogLeashPrice(input);
+                        if (product == null)
+                        {
+                            Console.WriteLine("Sorry, that product doesn't exist.");
+                        }
+                        else
+                        {
+                            Console.WriteLine(JsonSerializer.Serialize(product));
+                            Console.WriteLine($"Discounted Price= {discount.DiscountThisPrice()}");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine(JsonSerializer.Serialize(product));
-                        Console.WriteLine($"Discounted Price= {discount.DiscountThisPrice()}");
+                        Console.WriteLine("Sorry, you must enter either \"cat\" or \"dog\".");
                     }
                 }
                 else if (userInput == "8")
