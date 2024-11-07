@@ -21,7 +21,7 @@ namespace PetStoreInventory
                 else
                 {
                     Console.WriteLine("\nSorry, that doesn't appear to be a valid number. \nYou must enter a whole number, an example would be '12'.");
-                    input = Console.ReadLine();
+                    input = Console.ReadLine() ?? "";
                 }
             }
             return intInput;
@@ -40,7 +40,7 @@ namespace PetStoreInventory
                 else
                 {
                     Console.WriteLine("\nSorry, that doesn't appear to be a valid decimal. \nYou must enter a decimal number, an example would be '1.5'.");
-                    input = Console.ReadLine();
+                    input = Console.ReadLine() ?? "";
                 }
             }
             return decInput;
@@ -59,7 +59,7 @@ namespace PetStoreInventory
                 else
                 {
                     Console.WriteLine("\nSorry, that doesn't appear to be a valid true/false statement. \nYou must enter either 'true' or 'false'.");
-                    input = Console.ReadLine();
+                    input = Console.ReadLine() ?? "";
                 }
             }
             return boolInput;
@@ -73,10 +73,10 @@ namespace PetStoreInventory
             while (inputCheck == false)
             {
                 Console.WriteLine(questionStatement);
-                userInput = Console.ReadLine();
+                userInput = Console.ReadLine() ?? "";
                 if (userInput.ToLower() == lookupValue)
                 {
-                    CatFood product = new CatFood() { Name = Console.ReadLine() };
+                    CatFood product = new CatFood() { Name = Console.ReadLine() ?? "" };
                     inputCheck = true;
                 }
                 else

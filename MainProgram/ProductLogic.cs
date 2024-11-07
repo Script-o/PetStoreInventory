@@ -39,7 +39,7 @@ namespace PetStoreInventory
 			{
                 return _dogLeash[name];
             }
-			catch (Exception ex)
+			catch (Exception)
 			{
 				return null;
 			}
@@ -51,7 +51,7 @@ namespace PetStoreInventory
             {
                 return _dogLeash[name].Price;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return 0;
             }
@@ -63,7 +63,7 @@ namespace PetStoreInventory
             {
                 return _catFood[name];
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -75,7 +75,7 @@ namespace PetStoreInventory
             {
                 return _catFood[name].Price;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return 0;
             }

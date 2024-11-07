@@ -17,14 +17,13 @@ namespace PetStoreInventory
             {
                 Console.WriteLine("\n[1] Insert Product, [2] View Product, [8] All Products");
                 Console.WriteLine("[9] In Stock, [10] Out of Stock, 'exit'");
-                userInput = Console.ReadLine();
+                userInput = Console.ReadLine() ?? "";
 
                 if (userInput == "1")
                 {
-                    bool inputCheck = false;
                     Console.WriteLine("\nDo you want to add Cat Food or Dog Leash?");
                     Console.WriteLine("Type 'cat' or 'dog'");
-                    userInput = Console.ReadLine();
+                    userInput = Console.ReadLine() ?? "";
 
                     if (userInput.ToLower() == "cat" || userInput.ToLower() == "dog")
                     {
@@ -38,28 +37,28 @@ namespace PetStoreInventory
                             Console.WriteLine("What is the name of the Dog Leash?");
                             productType = "dog";
                         }
-                        string ProductName = Console.ReadLine();
+                        string ProductName = Console.ReadLine() ?? "";
 
                         Console.WriteLine($"What is the price of the {ProductName}?");
-                        userInput = Console.ReadLine();
+                        userInput = Console.ReadLine() ?? "";
                         decimal ProductPrice = UserInputCheck.DecimalCheck(userInput);
 
                         Console.WriteLine($"What is the quantity of the {ProductName}?");
-                        userInput = Console.ReadLine();
+                        userInput = Console.ReadLine() ?? "";
                         int ProductQuantity = UserInputCheck.IntegerCheck(userInput);
 
                         Console.WriteLine($"What is the description of the {ProductName}?");
-                        string ProductDescription = Console.ReadLine();
+                        string ProductDescription = Console.ReadLine() ?? "";
 
                         if (productType == "cat")
                         {
                             Console.WriteLine($"What is the weight of the {ProductName}?");
-                            userInput = Console.ReadLine();
+                            userInput = Console.ReadLine() ?? "";
                             int ProductWeightPounds = UserInputCheck.IntegerCheck(userInput);
 
                             Console.WriteLine($"Is the {ProductName} kitten food?");
                             Console.WriteLine("true or false");
-                            userInput = Console.ReadLine();
+                            userInput = Console.ReadLine() ?? "";
                             bool ProductKittenFood = UserInputCheck.BoolCheck(userInput);
 
                             CatFood product = new CatFood() 
@@ -79,11 +78,11 @@ namespace PetStoreInventory
                         if (productType == "dog")
                         {
                             Console.WriteLine($"What is the length of the {ProductName}?");
-                            userInput = Console.ReadLine();
+                            userInput = Console.ReadLine() ?? "";
                             int ProductLength = UserInputCheck.IntegerCheck(userInput);
 
                             Console.WriteLine($"What material is the {ProductName} made?");
-                            string ProductMaterial = Console.ReadLine();
+                            string ProductMaterial = Console.ReadLine() ?? "";
 
                             DogLeash product = new DogLeash()
                             {
@@ -110,11 +109,11 @@ namespace PetStoreInventory
                 {
                     Console.WriteLine("Do you want to view a Cat Food or a Dog Leash?");
                     Console.WriteLine("Enter \"cat\" or \"dog\"");
-                    var input = Console.ReadLine();
+                    var input = Console.ReadLine() ?? "";
                     if (input == "cat")
                     {
                         Console.WriteLine("Enter the name of the Cat Food you want to view.");
-                        input = Console.ReadLine();
+                        input = Console.ReadLine() ?? "";
                         var product = productLogic.GetCatFoodName(input);
                         var discount = productLogic.GetCatFoodPrice(input);
                         if (product == null)
@@ -130,7 +129,7 @@ namespace PetStoreInventory
                     else if (input == "dog")
                     {
                         Console.WriteLine("Enter the name of the Dog Leash you want to view.");
-                        input = Console.ReadLine();
+                        input = Console.ReadLine() ?? "";
                         var product = productLogic.GetDogLeashName(input);
                         var discount = productLogic.GetDogLeashPrice(input);
                         if (product == null)
