@@ -8,14 +8,14 @@ namespace PetStoreInventory
 {
     public interface IProductLogic
     {
-        void AddProduct(Product product);
+        public void AddProduct(Product product);
 
-        List<Product> GetAllProducts();
+        public List<Product> GetAllProducts();
 
-        DogLeash GetDogLeashName(string name);
+        public DogLeash GetDogLeashName(string name);
 
-        List<string> GetOnlyInStockProducts();
+        public List<string> GetOnlyInStockProducts();
 
-        List<string> GetOutOfStockProducts();
+        public List<string> GetOutOfStockProducts();
     }
 }

@@ -83,15 +83,20 @@ namespace PetStoreInventory
 
         public List<string> GetOnlyInStockProducts()
         {
-			List<string> inStockProductNames = new List<string>();
-			foreach (var prod in _products)
-			{
-				if (prod.Quantity > 0)
-				{
-					inStockProductNames.Add(prod.Name);
-				}
-			}
-			return inStockProductNames;
+            /* BELOW IS THE STANDARD FOREACH WAY TO PARSE THIS LIST
+             * THE CLEANER WAY TO WRITE IT IS USING THE ARROW
+             * METHOD BELOW IT
+             * List<string> inStockProductNames = new List<string>();
+             * foreach (var prod in _products)
+             * {
+             *      if (prod.Quantity > 0)
+             *      {
+             *          inStockProductNames.Add(prod.Name);
+             *      }
+             * }
+             * return inStockProductNames;
+             */ 
+            return _products.Where(x => x.Quantity > 0).Select(x=>x.Name).ToList();
         }
 
         public List<string> GetOutOfStockProducts()
