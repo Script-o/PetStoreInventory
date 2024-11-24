@@ -15,7 +15,7 @@ namespace PetStoreInventoryTest
         public void GetDogLeashNameTest()
         {
             //-- Arrange
-            var productLogic = new ProductLogic();
+            IProductLogic productLogic = new ProductLogic();
             DogLeash expected = new DogLeash { Name = "Leather Leash", Price = 26.99M, Quantity = 5 };
             //-- Act
             var actual = productLogic.GetDogLeashName("Leather Leash");
@@ -27,12 +27,12 @@ namespace PetStoreInventoryTest
         public void GetDogLeashPriceTest()
         {
             //-- Arrange
-            var productLogic = new ProductLogic();
+            IProductLogic productLogic = new ProductLogic();
             DogLeash expected = new DogLeash { Name = "Leather Leash", Price = 26.99M, Quantity = 5 };
             //-- Act
-            var actual = productLogic.GetDogLeashName("Leather Leash");
+            var actual = productLogic.GetDogLeashPrice("Leather Leash");
             //-- Assert
-            Assert.AreEqual(expected.Price, actual.Price);
+            Assert.AreEqual(expected.Price, actual);
         }
     }
 }

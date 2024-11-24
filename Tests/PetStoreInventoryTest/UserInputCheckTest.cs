@@ -9,7 +9,6 @@ namespace PetStoreInventoryTest
         public void IntegerCheckValid()
         {
             //-- Arrange
-            var userInputCheck = new UserInputCheck();
             int expected = 10;
             //-- Act
             int actual = UserInputCheck.IntegerCheck("10");
@@ -21,7 +20,6 @@ namespace PetStoreInventoryTest
         public void DecimalCheckValid()
         {
             //-- Arrange
-            var userInputCheck = new UserInputCheck();
             decimal expected = 10.56M;
             //-- Act
             decimal actual = UserInputCheck.DecimalCheck("10.56");
@@ -33,7 +31,6 @@ namespace PetStoreInventoryTest
         public void BoolCheckValid()
         {
             //-- Arrange
-            var userInputCheck = new UserInputCheck();
             bool expected = true;
             //-- Act
             bool actual = UserInputCheck.BoolCheck("true");
@@ -41,5 +38,4 @@ namespace PetStoreInventoryTest
             Assert.AreEqual(expected, actual);
         }
     }
-
 }

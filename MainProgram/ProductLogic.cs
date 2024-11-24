@@ -3,47 +3,47 @@ using System.Diagnostics;
 
 namespace PetStoreInventory
 {
-	public class ProductLogic : IProductLogic
-	{
-		public ProductLogic()
-		{
+    public class ProductLogic : IProductLogic
+    {
+        public ProductLogic()
+        {
             AddProduct(new DogLeash { Name = "Leather Leash", Price = 26.99M, Quantity = 5 });
             AddProduct(new DogLeash { Name = "Bedazzled Leash", Price = 26.99M, Quantity = 0 });
             AddProduct(new CatFood { Name = "Num Nums", Price = 3.99M, Quantity = 10 });
         }
 
-        private List<Product> _products = new List<Product>();
-		private Dictionary<string, DogLeash> _dogLeash = new Dictionary<string, DogLeash>();
+        private List<IProduct> _products = new List<IProduct>();
+        private Dictionary<string, DogLeash> _dogLeash = new Dictionary<string, DogLeash>();
         private Dictionary<string, CatFood> _catFood = new Dictionary<string, CatFood>();
 
-        public void AddProduct(Product product)
-		{
-			_products.Add(product);
+        public void AddProduct(IProduct product)
+        {
+            _products.Add(product);
 
-			if (product is DogLeash)
-			{
-				_dogLeash.Add(product.Name, product as DogLeash);
-			}
+            if (product is DogLeash)
+            {
+                _dogLeash.Add(product.Name, product as DogLeash);
+            }
             if (product is CatFood)
             {
                 _catFood.Add(product.Name, product as CatFood);
             }
         }
-		public List<Product> GetAllProducts()
-		{
-			return _products;
-		}
-		public DogLeash GetDogLeashName(string name)
-		{
-			try
-			{
+        public List<IProduct> GetAllProducts()
+        {
+            return _products;
+        }
+        public DogLeash GetDogLeashName(string name)
+        {
+            try
+            {
                 return _dogLeash[name];
             }
-			catch (Exception)
-			{
-				return null;
-			}
-		}
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public decimal GetDogLeashPrice(string name)
         {
@@ -95,8 +95,8 @@ namespace PetStoreInventory
              *      }
              * }
              * return inStockProductNames;
-             */ 
-            return _products.Where(x => x.Quantity > 0).Select(x=>x.Name).ToList();
+             */
+            return _products.Where(x => x.Quantity > 0).Select(x => x.Name).ToList();
         }
 
         public List<string> GetOutOfStockProducts()
