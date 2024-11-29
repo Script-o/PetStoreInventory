@@ -8,9 +8,9 @@ namespace PetStoreInventory
 {
     public interface IProductLogic
     {
-        public void AddProduct(IProduct product);
+        public void AddProduct(Product product);
 
-        public List<IProduct> GetAllProducts();
+        public List<Product> GetAllProducts();
 
         public DogLeash GetDogLeashName(string name);
 
@@ -23,5 +23,7 @@ namespace PetStoreInventory
         public List<string> GetOnlyInStockProducts();
 
         public List<string> GetOutOfStockProducts();
+
+        public decimal GetTotalPriceOfInventory();
     }
 }

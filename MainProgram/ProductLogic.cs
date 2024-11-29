@@ -12,11 +12,11 @@ namespace PetStoreInventory
             AddProduct(new CatFood { Name = "Num Nums", Price = 3.99M, Quantity = 10 });
         }
 
-        private List<IProduct> _products = new List<IProduct>();
+        private List<Product> _products = new List<Product>();
         private Dictionary<string, DogLeash> _dogLeash = new Dictionary<string, DogLeash>();
         private Dictionary<string, CatFood> _catFood = new Dictionary<string, CatFood>();
 
-        public void AddProduct(IProduct product)
+        public void AddProduct(Product product)
         {
             _products.Add(product);
 
@@ -29,7 +29,7 @@ namespace PetStoreInventory
                 _catFood.Add(product.Name, product as CatFood);
             }
         }
-        public List<IProduct> GetAllProducts()
+        public List<Product> GetAllProducts()
         {
             return _products;
         }
@@ -83,25 +83,17 @@ namespace PetStoreInventory
 
         public List<string> GetOnlyInStockProducts()
         {
-            /* BELOW IS THE STANDARD FOREACH WAY TO PARSE THIS LIST
-             * THE CLEANER WAY TO WRITE IT IS USING THE ARROW
-             * METHOD BELOW IT
-             * List<string> inStockProductNames = new List<string>();
-             * foreach (var prod in _products)
-             * {
-             *      if (prod.Quantity > 0)
-             *      {
-             *          inStockProductNames.Add(prod.Name);
-             *      }
-             * }
-             * return inStockProductNames;
-             */
-            return _products.Where(x => x.Quantity > 0).Select(x => x.Name).ToList();
+            return _products.InStock().Select(x => x.Name).ToList();
         }
 
         public List<string> GetOutOfStockProducts()
         {
-            return _products.Where(p => p.Quantity == 0).Select(p => p.Name).ToList();
+            return _products.InStock().Select(p => p.Name).ToList();
+        }
+
+        public decimal GetTotalPriceOfInventory()
+        {
+            return _products.InStock().Select(x => x.Price * x.Quantity).Sum();
         }
     }
 }

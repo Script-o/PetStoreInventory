@@ -15,8 +15,11 @@ namespace PetStoreInventory
 
             while (userInput.ToLower() != "exit")
             {
-                Console.WriteLine("\n[1] Insert Product, [2] View Product, [8] All Products");
-                Console.WriteLine("[9] In Stock, [10] Out of Stock, 'exit'");
+                Console.WriteLine(
+                    "\n[1] Insert Product, [2] View Product, [6] All Products" +
+                    "\n[7] In Stock, [8] Out of Stock, [9] Total Price" +
+                    "\n[exit] Close Program"
+                    );
                 userInput = Console.ReadLine() ?? "";
 
                 if (userInput == "1")
@@ -84,7 +87,7 @@ namespace PetStoreInventory
                             Console.WriteLine($"What material is the {ProductName} made of?");
                             string ProductMaterial = Console.ReadLine() ?? "";
 
-                            IProduct product = new DogLeash()
+                            Product product = new DogLeash()
                             {
                                 Name = ProductName,
                                 Price = ProductPrice,
@@ -147,19 +150,24 @@ namespace PetStoreInventory
                         Console.WriteLine("Sorry, you must enter either \"cat\" or \"dog\".");
                     }
                 }
-                else if (userInput == "8")
+                else if (userInput == "6")
                 {
                     var product = productLogic.GetAllProducts();
                     Console.WriteLine(JsonSerializer.Serialize(product));
                 }
-                else if (userInput == "9")
+                else if (userInput == "7")
                 {
                     var product = productLogic.GetOnlyInStockProducts();
                     Console.WriteLine(JsonSerializer.Serialize(product));
                 }
-                else if (userInput == "10")
+                else if (userInput == "8")
                 {
                     var product = productLogic.GetOutOfStockProducts();
+                    Console.WriteLine(JsonSerializer.Serialize(product));
+                }
+                else if (userInput == "9")
+                {
+                    var product = productLogic.GetTotalPriceOfInventory();
                     Console.WriteLine(JsonSerializer.Serialize(product));
                 }
                 else if (userInput.ToLower() == "exit")
