@@ -12,17 +12,19 @@ namespace PetStoreInventory
 
             IProductLogic productLogic = new ProductLogic();
             IUILogic uiLogic = new UILogic();
+            Logging logging = new Logging();
+            DataInput dataInput = new DataInput();
 
             while (userInput.ToLower() != "exit")
             {
-                Console.WriteLine(
-                    "\n[1] Insert Product, [2] View Product, [6] All Products" +
+                logging.Logger(
+                    "[1] Insert Product, [2] View Product, [6] All Products" +
                     "\n[7] In Stock, [8] Out of Stock, [9] Total Price" +
                     "\n[exit] Close Program");
 
 
 
-                userInput = Console.ReadLine() ?? "";
+                userInput = dataInput.AskForUserInput();
 
 
 
@@ -32,8 +34,8 @@ namespace PetStoreInventory
                     if (product != null)
                     {
                         productLogic.AddProduct(product);
-                        Console.WriteLine($"{product.Name} has been added.");
-                        Console.WriteLine(JsonSerializer.Serialize(product));
+                        logging.Logger($"{product.Name} has been added.");
+                        logging.Logger(JsonSerializer.Serialize(product) + "\n");
                     }
 
                 }
@@ -44,30 +46,30 @@ namespace PetStoreInventory
                 else if (userInput == "6")
                 {
                     var product = productLogic.GetAllProducts();
-                    Console.WriteLine(JsonSerializer.Serialize(product));
+                    logging.Logger(JsonSerializer.Serialize(product) + "\n");
                 }
                 else if (userInput == "7")
                 {
                     var product = productLogic.GetOnlyInStockProducts();
-                    Console.WriteLine(JsonSerializer.Serialize(product));
+                    logging.Logger(JsonSerializer.Serialize(product) + "\n");
                 }
                 else if (userInput == "8")
                 {
                     var product = productLogic.GetOutOfStockProducts();
-                    Console.WriteLine(JsonSerializer.Serialize(product));
+                    logging.Logger(JsonSerializer.Serialize(product) + "\n");
                 }
                 else if (userInput == "9")
                 {
                     var product = productLogic.GetTotalPriceOfInventory();
-                    Console.WriteLine(JsonSerializer.Serialize(product));
+                    logging.Logger(JsonSerializer.Serialize(product) + "\n");
                 }
                 else if (userInput.ToLower() == "exit")
                 {
-                    Console.WriteLine("Logging off.");
+                    logging.Logger("Logging off.");
                 }
                 else
                 {
-                    Console.WriteLine("Sorry, that isn't a valid command.");
+                    logging.Logger("Sorry, that isn't a valid command.\n");
                 }
             }
         }
