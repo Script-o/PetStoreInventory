@@ -10,6 +10,8 @@ namespace PetStoreInventory
     {
         public static int IntegerCheck(string input)
         {
+            Logging logging = new Logging();
+            DataInput dataInput = new DataInput();
             bool inputCheck = false;
             int intInput = 0;
             while (inputCheck == false)
@@ -20,8 +22,8 @@ namespace PetStoreInventory
                 }
                 else
                 {
-                    Console.WriteLine("\nSorry, that doesn't appear to be a valid number. \nYou must enter a whole number, an example would be '12'.");
-                    input = Console.ReadLine() ?? "";
+                    logging.Logger("\nSorry, that doesn't appear to be a valid number. \nYou must enter a whole number, an example would be '12'.");
+                    input = dataInput.AskForUserInput();
                 }
             }
             return intInput;
@@ -29,6 +31,8 @@ namespace PetStoreInventory
 
         public static decimal DecimalCheck(string input)
         {
+            Logging logging = new Logging();
+            DataInput dataInput = new DataInput();
             bool inputCheck = false;
             decimal decInput = 0;
             while (inputCheck == false)
@@ -39,8 +43,8 @@ namespace PetStoreInventory
                 }
                 else
                 {
-                    Console.WriteLine("\nSorry, that doesn't appear to be a valid decimal. \nYou must enter a decimal number, an example would be '1.5'.");
-                    input = Console.ReadLine() ?? "";
+                    logging.Logger("\nSorry, that doesn't appear to be a valid decimal. \nYou must enter a decimal number, an example would be '1.5'.");
+                    input = dataInput.AskForUserInput();
                 }
             }
             return decInput;
@@ -48,6 +52,8 @@ namespace PetStoreInventory
 
         public static bool BoolCheck(string input)
         {
+            Logging logging = new Logging();
+            DataInput dataInput = new DataInput();
             bool inputCheck = false;
             bool boolInput = false;
             while (inputCheck == false)
@@ -58,8 +64,8 @@ namespace PetStoreInventory
                 }
                 else
                 {
-                    Console.WriteLine("\nSorry, that doesn't appear to be a valid true/false statement. \nYou must enter either 'true' or 'false'.");
-                    input = Console.ReadLine() ?? "";
+                    logging.Logger("\nSorry, that doesn't appear to be a valid true/false statement. \nYou must enter either 'true' or 'false'.");
+                    input = dataInput.AskForUserInput();
                 }
             }
             return boolInput;
@@ -68,20 +74,22 @@ namespace PetStoreInventory
         //Might be overcomplicating the problem?
         public static bool valueEqualsCheck(string userInput, string lookupValue, string questionStatement, string errorStatement)
         {
+            Logging logging = new Logging();
+            DataInput dataInput = new DataInput();
             bool inputCheck = false;
             bool valueInput = false;
             while (inputCheck == false)
             {
-                Console.WriteLine(questionStatement);
-                userInput = Console.ReadLine() ?? "";
+                logging.Logger(questionStatement);
+                userInput = dataInput.AskForUserInput();
                 if (userInput.ToLower() == lookupValue)
                 {
-                    CatFood product = new CatFood() { Name = Console.ReadLine() ?? "" };
+                    CatFood product = new CatFood() { Name = dataInput.AskForUserInput() };
                     inputCheck = true;
                 }
                 else
                 {
-                    Console.WriteLine(errorStatement);
+                    logging.Logger(errorStatement);
                 }
             }
             return valueInput;

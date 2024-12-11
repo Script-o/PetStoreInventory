@@ -8,175 +8,68 @@ namespace PetStoreInventory
     {
         static void Main(string[] args)
         {
-            string userInput = "start";
-            string productType = "start";
+            string userInput = "";
 
             IProductLogic productLogic = new ProductLogic();
+            IUILogic uiLogic = new UILogic();
+            Logging logging = new Logging();
+            DataInput dataInput = new DataInput();
 
             while (userInput.ToLower() != "exit")
             {
-                Console.WriteLine(
-                    "\n[1] Insert Product, [2] View Product, [6] All Products" +
+                logging.Logger(
+                    "[1] Insert Product, [2] View Product, [6] All Products" +
                     "\n[7] In Stock, [8] Out of Stock, [9] Total Price" +
-                    "\n[exit] Close Program"
-                    );
-                userInput = Console.ReadLine() ?? "";
+                    "\n[exit] Close Program");
+
+
+
+                userInput = dataInput.AskForUserInput();
+
+
 
                 if (userInput == "1")
                 {
-                    Console.WriteLine("\nDo you want to add Cat Food or Dog Leash?");
-                    Console.WriteLine("Type 'cat' or 'dog'");
-                    userInput = Console.ReadLine() ?? "";
-
-                    if (userInput.ToLower() == "cat" || userInput.ToLower() == "dog")
+                    var product = uiLogic.AddProductMenu();
+                    if (product != null)
                     {
-                        if (userInput.ToLower() == "cat")
-                        {
-                            Console.WriteLine("What is the name of the Cat Food?");
-                            productType = "cat";
-                        }
-                        if (userInput.ToLower() == "dog")
-                        {
-                            Console.WriteLine("What is the name of the Dog Leash?");
-                            productType = "dog";
-                        }
-                        string ProductName = Console.ReadLine() ?? "";
-
-                        Console.WriteLine($"What is the price of the {ProductName}?");
-                        userInput = Console.ReadLine() ?? "";
-                        decimal ProductPrice = UserInputCheck.DecimalCheck(userInput);
-
-                        Console.WriteLine($"What is the quantity of the {ProductName}?");
-                        userInput = Console.ReadLine() ?? "";
-                        int ProductQuantity = UserInputCheck.IntegerCheck(userInput);
-
-                        Console.WriteLine($"What is the description of the {ProductName}?");
-                        string ProductDescription = Console.ReadLine() ?? "";
-
-                        if (productType == "cat")
-                        {
-                            Console.WriteLine($"What is the weight of the {ProductName}?");
-                            userInput = Console.ReadLine() ?? "";
-                            int ProductWeightPounds = UserInputCheck.IntegerCheck(userInput);
-
-                            Console.WriteLine($"Is the {ProductName} kitten food?");
-                            Console.WriteLine("true or false");
-                            userInput = Console.ReadLine() ?? "";
-                            bool ProductKittenFood = UserInputCheck.BoolCheck(userInput);
-
-                            CatFood product = new CatFood()
-                            {
-                                Name = ProductName,
-                                Price = ProductPrice,
-                                Quantity = ProductQuantity,
-                                Description = ProductDescription,
-                                WeightPounds = ProductWeightPounds,
-                                KittenFood = ProductKittenFood
-                            };
-
-                            productLogic.AddProduct(product);
-                            Console.WriteLine($"{product.Name} has been added.");
-                            Console.WriteLine(JsonSerializer.Serialize(product));
-                        }
-                        if (productType == "dog")
-                        {
-                            Console.WriteLine($"What is the length of the {ProductName}?");
-                            userInput = Console.ReadLine() ?? "";
-                            int ProductLength = UserInputCheck.IntegerCheck(userInput);
-
-                            Console.WriteLine($"What material is the {ProductName} made of?");
-                            string ProductMaterial = Console.ReadLine() ?? "";
-
-                            Product product = new DogLeash()
-                            {
-                                Name = ProductName,
-                                Price = ProductPrice,
-                                Quantity = ProductQuantity,
-                                Description = ProductDescription,
-                                LengthInches = ProductLength,
-                                Material = ProductMaterial
-                            };
-
-                            productLogic.AddProduct(product);
-                            Console.WriteLine($"{product.Name} has been added.");
-                            Console.WriteLine(JsonSerializer.Serialize(product));
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Sorry, that doesn't appear to be a vaild command. You must enter 'cat or 'dog'.");
+                        productLogic.AddProduct(product);
+                        logging.Logger($"{product.Name} has been added.");
+                        logging.Logger(JsonSerializer.Serialize(product) + "\n");
                     }
 
                 }
                 else if (userInput == "2")
                 {
-                    Console.WriteLine("Do you want to view a Cat Food or a Dog Leash?");
-                    Console.WriteLine("Enter \"cat\" or \"dog\"");
-                    var input = Console.ReadLine() ?? "";
-                    if (input.ToLower() == "cat")
-                    {
-                        Console.WriteLine("Enter the name of the Cat Food you want to view.");
-                        input = Console.ReadLine() ?? "";
-                        var product = productLogic.GetCatFoodName(input);
-                        var discount = productLogic.GetCatFoodPrice(input);
-                        if (product == null)
-                        {
-                            Console.WriteLine("Sorry, that product doesn't exist.");
-                        }
-                        else
-                        {
-                            Console.WriteLine(JsonSerializer.Serialize(product));
-                            Console.WriteLine($"Discounted Price= {discount.DiscountThisPrice()}");
-                        }
-                    }
-                    else if (input.ToLower() == "dog")
-                    {
-                        Console.WriteLine("Enter the name of the Dog Leash you want to view.");
-                        input = Console.ReadLine() ?? "";
-                        var product = productLogic.GetDogLeashName(input);
-                        var discount = productLogic.GetDogLeashPrice(input);
-                        if (product == null)
-                        {
-                            Console.WriteLine("Sorry, that product doesn't exist.");
-                        }
-                        else
-                        {
-                            Console.WriteLine(JsonSerializer.Serialize(product));
-                            Console.WriteLine($"Discounted Price= {discount.DiscountThisPrice()}");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Sorry, you must enter either \"cat\" or \"dog\".");
-                    }
+                    uiLogic.ViewProductMenu(productLogic);
                 }
                 else if (userInput == "6")
                 {
                     var product = productLogic.GetAllProducts();
-                    Console.WriteLine(JsonSerializer.Serialize(product));
+                    logging.Logger(JsonSerializer.Serialize(product) + "\n");
                 }
                 else if (userInput == "7")
                 {
                     var product = productLogic.GetOnlyInStockProducts();
-                    Console.WriteLine(JsonSerializer.Serialize(product));
+                    logging.Logger(JsonSerializer.Serialize(product) + "\n");
                 }
                 else if (userInput == "8")
                 {
                     var product = productLogic.GetOutOfStockProducts();
-                    Console.WriteLine(JsonSerializer.Serialize(product));
+                    logging.Logger(JsonSerializer.Serialize(product) + "\n");
                 }
                 else if (userInput == "9")
                 {
                     var product = productLogic.GetTotalPriceOfInventory();
-                    Console.WriteLine(JsonSerializer.Serialize(product));
+                    logging.Logger(JsonSerializer.Serialize(product) + "\n");
                 }
                 else if (userInput.ToLower() == "exit")
                 {
-                    Console.WriteLine("Logging off.");
+                    logging.Logger("Logging off.");
                 }
                 else
                 {
-                    Console.WriteLine("Sorry, that isn't a valid command.");
+                    logging.Logger("Sorry, that isn't a valid command.\n");
                 }
             }
         }
