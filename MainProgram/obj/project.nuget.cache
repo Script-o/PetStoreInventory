@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "y8ikuN8TNR4=",
+  "dgSpecHash": "a4p9FU5dKzQ=",
   "success": true,
   "projectFilePath": "D:\\PROJECTS\\PetStoreInventory\\MainProgram\\PetStoreInventory.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Joni\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Joni\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.0\\microsoft.extensions.configuration.9.0.0.nupkg.sha512",
     "C:\\Users\\Joni\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0\\microsoft.extensions.configuration.abstractions.9.0.0.nupkg.sha512",
     "C:\\Users\\Joni\\.nuget\\packages\\microsoft.extensions.configuration.binder\\9.0.0\\microsoft.extensions.configuration.binder.9.0.0.nupkg.sha512",

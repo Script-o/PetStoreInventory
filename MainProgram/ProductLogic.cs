@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FluentValidation;
+using PetStoreInventory;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Text.Json;
 using System.Xml.Linq;
@@ -15,11 +18,20 @@ namespace PetStoreInventory
         }
 
         private List<Product> _products = new List<Product>();
+
         private Dictionary<string, DogLeash> _dogLeash = new Dictionary<string, DogLeash>();
         private Dictionary<string, CatFood> _catFood = new Dictionary<string, CatFood>();
 
+        private ProductValidator dogLeashValidator = new ProductValidator();
+
         public void AddProduct(Product product)
         {
+            var validatorResult = dogLeashValidator.Validate(product);
+            if (!validatorResult.IsValid)
+            {
+                Console.WriteLine("Error in JSON: " + validatorResult + "\n");
+                return;
+            }
             _products.Add(product);
 
             if (product is DogLeash)
@@ -36,43 +48,22 @@ namespace PetStoreInventory
             return _products;
         }
 
-        public string GetProductName(string name, string type)
-        {
-
-            if (type == "dog")
-            {
-                if (GetDogLeashName(name) != null)
-                {
-                    return JsonSerializer.Serialize(GetDogLeashName(name));
-                }
-            }
-            if (type == "cat")
-            {
-                if (GetCatFoodName(name) != null)
-                {
-                    return JsonSerializer.Serialize(GetCatFoodName(name));
-                }
-            }
-            return null;
-        }
-
-        public DogLeash GetDogLeashName(string name)
+        public string GetProductName<T>(string name) where T : Product
         {
             try
             {
-                return _dogLeash[name];
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        public CatFood GetCatFoodName(string name)
-        {
-            try
-            {
-                return _catFood[name];
+                if (typeof(T) == typeof(DogLeash))
+                {
+                    return _dogLeash[name].Name;
+                }
+                else if (typeof(T) == typeof(CatFood))
+                {
+                    return _catFood[name].Name;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception)
             {

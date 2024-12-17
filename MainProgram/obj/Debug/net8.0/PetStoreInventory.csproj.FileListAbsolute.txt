@@ -50,3 +50,4 @@ D:\PROJECTS\PetStoreInventory\MainProgram\bin\Debug\net8.0\runtimes\win\lib\net8
 D:\PROJECTS\PetStoreInventory\MainProgram\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\PROJECTS\PetStoreInventory\MainProgram\obj\Debug\net8.0\PetStoreInventory.csproj.AssemblyReference.cache
 D:\PROJECTS\PetStoreInventory\MainProgram\obj\Debug\net8.0\PetStore.39EA9715.Up2Date
+D:\PROJECTS\PetStoreInventory\MainProgram\bin\Debug\net8.0\FluentValidation.dll

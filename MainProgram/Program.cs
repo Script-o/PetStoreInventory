@@ -25,11 +25,7 @@ namespace PetStoreInventory
                     "\n[7] In Stock, [8] Out of Stock, [9] Total Price" +
                     "\n[exit] Close Program");
 
-
-
                 userInput = dataInput.AskForUserInput();
-
-
 
                 if (userInput == "1")
                 {
@@ -42,7 +38,7 @@ namespace PetStoreInventory
                     }
 
                 }
-                if (userInput == "2")
+                else if (userInput == "2")
                 {
                     logging.Logger("\nDo you want to add Cat Food or Dog Leash?");
                     logging.Logger("Type 'cat' or 'dog'");

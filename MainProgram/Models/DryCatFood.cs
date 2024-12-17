@@ -2,8 +2,8 @@
 
 namespace PetStoreInventory
 {
-	public class DryCatFood : CatFood
-	{
+    public class DryCatFood : CatFood
+    {
         //public double WeightPounds { get; set; }
     }
 }

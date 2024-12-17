@@ -1,7 +1,9 @@
-﻿using System;
+﻿using PetStoreInventory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace PetStoreInventory
@@ -69,30 +71,6 @@ namespace PetStoreInventory
                 }
             }
             return boolInput;
-        }
-
-        //Might be overcomplicating the problem?
-        public static bool valueEqualsCheck(string userInput, string lookupValue, string questionStatement, string errorStatement)
-        {
-            Logging logging = new Logging();
-            DataInput dataInput = new DataInput();
-            bool inputCheck = false;
-            bool valueInput = false;
-            while (inputCheck == false)
-            {
-                logging.Logger(questionStatement);
-                userInput = dataInput.AskForUserInput();
-                if (userInput.ToLower() == lookupValue)
-                {
-                    CatFood product = new CatFood() { Name = dataInput.AskForUserInput() };
-                    inputCheck = true;
-                }
-                else
-                {
-                    logging.Logger(errorStatement);
-                }
-            }
-            return valueInput;
         }
     }
 }

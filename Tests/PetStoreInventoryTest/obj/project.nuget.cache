@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "eiWhgfPXagI=",
+  "dgSpecHash": "msTel4YOgPY=",
   "success": true,
   "projectFilePath": "D:\\PROJECTS\\PetStoreInventory\\Tests\\PetStoreInventoryTest\\PetStoreInventoryTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joni\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
+    "C:\\Users\\Joni\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Joni\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",
     "C:\\Users\\Joni\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.0\\microsoft.extensions.configuration.9.0.0.nupkg.sha512",
     "C:\\Users\\Joni\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0\\microsoft.extensions.configuration.abstractions.9.0.0.nupkg.sha512",

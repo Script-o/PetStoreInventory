@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetStoreInventory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -65,8 +66,6 @@ namespace PetStoreInventory
                         ProductType = "Cat Food"
                     };
 
-                    var testing = JsonSerializer.Deserialize<CatFood>("test");
-
                     return product;
                 }
                 if (productType == "dog")
@@ -116,17 +115,34 @@ namespace PetStoreInventory
             if (productType.ToLower() == "cat" || productType.ToLower() == "dog")
             {
                 var input = dataInput.AskForUserInput();
-                var product = productLogic.GetProductName(input, productType);
-                var discount = productLogic.GetProductPrice(input, productType);
-                if (product == null)
+                if (productType.ToLower() == "cat")
                 {
-                    logging.Logger("Sorry, that product doesn't exist.\n");
+                    var product = productLogic.GetProductName<CatFood>(input);
+                    var discount = productLogic.GetProductPrice(input, productType);
+                    if (product == null)
+                    {
+                        logging.Logger("Sorry, that product doesn't exist.\n");
+                    }
+                    else
+                    {
+                        logging.Logger(product);
+                        logging.Logger($"Discounted Price= {discount.DiscountThisPrice()}\n");
+                    }
                 }
-                else
+                else if (productType.ToLower() == "dog")
                 {
-                    logging.Logger(product);
-                    logging.Logger($"Discounted Price= {discount.DiscountThisPrice()}\n");
-                }
+                    var product = productLogic.GetProductName<DogLeash>(input);
+                    var discount = productLogic.GetProductPrice(input, productType);
+                    if (product == null)
+                    {
+                        logging.Logger("Sorry, that product doesn't exist.\n");
+                    }
+                    else
+                    {
+                        logging.Logger(product);
+                        logging.Logger($"Discounted Price= {discount.DiscountThisPrice()}\n");
+                    }
+                }         
             }
             else
             {
