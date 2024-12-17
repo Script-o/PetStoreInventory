@@ -65,6 +65,8 @@ namespace PetStoreInventory
                         ProductType = "Cat Food"
                     };
 
+                    var testing = JsonSerializer.Deserialize<CatFood>("test");
+
                     return product;
                 }
                 if (productType == "dog")
