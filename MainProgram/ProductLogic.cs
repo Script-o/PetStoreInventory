@@ -37,10 +37,12 @@ namespace PetStoreInventory
             if (product is DogLeash)
             {
                 _dogLeash.Add(product.Name, product as DogLeash);
+                Console.WriteLine($"{product.Name} has been added.\n");
             }
             if (product is CatFood)
             {
                 _catFood.Add(product.Name, product as CatFood);
+                Console.WriteLine($"{product.Name} has been added.\n");
             }
         }
         public List<Product> GetAllProducts()

@@ -2,6 +2,7 @@
 using PetStoreInventory;
 using System;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace PetStoreInventory
 {
@@ -49,15 +50,18 @@ namespace PetStoreInventory
                         logging.Logger("Enter your product in JSON format");
                         var userInputAsJson = Console.ReadLine();
 
-                        if (productType.ToLower() == "cat") 
-                        {
-                            productLogic.AddProduct(JsonSerializer.Deserialize<CatFood>(userInputAsJson));
-                        }
-                        else if (productType.ToLower() == "dog")
-                        {
-                            productLogic.AddProduct(JsonSerializer.Deserialize<CatFood>(userInputAsJson));
-                        }
-
+                        //JsonObject jsonParsed = UserInputCheck.JsonCheck(userInputAsJson);
+                        //if (jsonParsed != null) 
+                        //{
+                            if (productType.ToLower() == "cat")
+                            {
+                                productLogic.AddProduct(JsonSerializer.Deserialize<CatFood>(userInputAsJson));
+                            }
+                            else if (productType.ToLower() == "dog")
+                            {
+                                productLogic.AddProduct(JsonSerializer.Deserialize<CatFood>(userInputAsJson));
+                            }
+                        //}
                     }
                     else
                     {
