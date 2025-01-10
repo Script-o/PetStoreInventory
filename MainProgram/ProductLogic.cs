@@ -14,9 +14,9 @@ namespace PetStoreInventory
     {
         public ProductLogic()
         {
-            AddProduct(new DogLeash { Name = "Leather Leash", Price = 26.99M, Quantity = 5, ProductType = "Dog Leash" });
-            AddProduct(new DogLeash { Name = "Bedazzled Leash", Price = 26.99M, Quantity = 0, ProductType = "Dog Leash" });
-            AddProduct(new CatFood { Name = "Num Nums", Price = 3.99M, Quantity = 10, ProductType = "Cat Food" });
+            AddProduct(new DogLeash { Name = "Leather Leash", Price = 26.99M, Quantity = 5 });
+            AddProduct(new DogLeash { Name = "Bedazzled Leash", Price = 26.99M, Quantity = 0 });
+            AddProduct(new CatFood { Name = "Num Nums", Price = 3.99M, Quantity = 10 });
         }
 
         private List<Product> _products = new List<Product>();
@@ -49,6 +49,12 @@ namespace PetStoreInventory
         }
         public List<Product> GetAllProductsAsJSON()
         {
+            foreach (Product product in _products)
+            {
+                Console.WriteLine(product);
+                Console.ReadLine();
+            }
+
             return _products;
         }
 

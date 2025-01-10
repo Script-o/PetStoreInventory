@@ -15,16 +15,11 @@ namespace PetStoreInventory
         }
         public static List<T> InStockCatFood<T>(this List<T> list) where T : Product
         {
-            return list.Where(x => x.ProductType == "Cat Food" && x.Quantity > 0).ToList();
+            return list.Where(x => x.Quantity > 0 && x.GetType() == typeof(CatFood)).ToList();
         }
         public static List<T> InStockDogLeash<T>(this List<T> list) where T : Product
         {
-            return list.Where(x => x.ProductType == "Dog Leash" && x.Quantity > 0).ToList();
+            return list.Where(x => x.Quantity > 0 && x.GetType() == typeof(DogLeash)).ToList();
         }
     }
 }
-
-//if (typeof(T) == typeof(DogLeash))
-//{
-//    return _dogLeash[name].Name;
-//}

@@ -63,8 +63,7 @@ namespace PetStoreInventory
                         Quantity = ProductQuantity,
                         Description = ProductDescription,
                         WeightPounds = ProductWeightPounds,
-                        KittenFood = ProductKittenFood,
-                        ProductType = "Cat Food"
+                        KittenFood = ProductKittenFood
                     };
 
                     return product;
@@ -85,8 +84,7 @@ namespace PetStoreInventory
                         Quantity = ProductQuantity,
                         Description = ProductDescription,
                         LengthInches = ProductLength,
-                        Material = ProductMaterial,
-                        ProductType = "Dog Leash"
+                        Material = ProductMaterial
                     };
 
                     return product;

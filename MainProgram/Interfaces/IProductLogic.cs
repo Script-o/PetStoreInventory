@@ -12,19 +12,7 @@ namespace PetStoreInventory
         public void AddProduct(Product product);
         public List<Product> GetAllProductsAsJSON();
         public string GetProductName<T>(string name) where T : Product;
-
-
-
-
         public Product JsonValidationCheck(string input);
-
-
-
-
-
-
-        //public DogLeash GetDogLeashName(string name);
-        //public CatFood GetCatFoodName(string name);
         public decimal GetProductPrice(string name, string type);
         public decimal GetDogLeashPrice(string name);
         public decimal GetCatFoodPrice(string name);
