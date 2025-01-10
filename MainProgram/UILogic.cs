@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PetStoreInventory
@@ -149,6 +150,33 @@ namespace PetStoreInventory
                 logging.Logger("Sorry, you must enter either \"cat\" or \"dog\".\n");
             }
 
+        }
+
+        public string OutputJsonToConsoleClean(List<Product> _products)
+        {
+            var output = "";
+            foreach (Product product in _products)
+            {
+                output += $"--- {product.Name} ---\n";
+                foreach (var propertyInfo in product.GetType().GetProperties())
+                {
+                    if (propertyInfo.Name == "Name")
+                    {
+
+                    }
+                    else if (propertyInfo.GetValue(product) is null)
+                    {
+                        output += $"{propertyInfo.Name}: NULL, ";
+                    }
+                    else
+                    {
+                        output += $"{propertyInfo.Name}: {propertyInfo.GetValue(product)}, ";
+                    }
+                }
+                //Come back to this Regex to understand it. Matches every instance of , then selects last one?
+                output = Regex.Replace(output, "(?:,)([^,]+)$", "\n");
+            }
+            return output;
         }
     }
 }

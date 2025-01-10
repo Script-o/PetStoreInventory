@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace PetStoreInventory
 {
@@ -72,41 +74,5 @@ namespace PetStoreInventory
             }
             return boolInput;
         }
-
-        //public static JsonObject JsonCheck(string input)
-        //{
-        //    Logging logging = new Logging();
-        //    DataInput dataInput = new DataInput();
-        //    string inputCheck = "";
-
-        //    while (inputCheck.ToLower() != "r") 
-        //    {
-        //        var jsonParsed = TryParse(input, out JsonObject jsonInput);
-
-        //        if (jsonParsed)
-        //        {
-        //            return jsonInput;
-        //        }
-        //        else
-        //        {
-        //            logging.Logger("\nSorry, that doesn't appear to be a valid JSON file. \nEnter 'r' to return to the main menu.");
-        //            input = dataInput.AskForUserInput();
-        //        }
-        //    }
-        //    return null;
-        //}
-
-        //public static bool TryParse(string input, out JsonObject result)
-        //{
-        //    if (result != null)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-            
-        //}
     }
 }

@@ -3,7 +3,9 @@ using PetStoreInventory;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Reflection;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 namespace PetStoreInventory
@@ -45,7 +47,7 @@ namespace PetStoreInventory
                 Console.WriteLine($"{product.Name} has been added.\n");
             }
         }
-        public List<Product> GetAllProducts()
+        public List<Product> GetAllProductsAsJSON()
         {
             return _products;
         }
@@ -66,6 +68,18 @@ namespace PetStoreInventory
                 {
                     return null;
                 }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public Product JsonValidationCheck(string input)
+        {
+            try
+            {
+                return JsonSerializer.Deserialize<Product>(input);
             }
             catch (Exception)
             {

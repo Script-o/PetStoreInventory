@@ -3,6 +3,7 @@ using PetStoreInventory;
 using System;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Xml.Linq;
 
 namespace PetStoreInventory
 {
@@ -34,8 +35,6 @@ namespace PetStoreInventory
                     if (product != null)
                     {
                         productLogic.AddProduct(product);
-                        logging.Logger($"{product.Name} has been added.");
-                        logging.Logger(JsonSerializer.Serialize(product) + "\n");
                     }
 
                 }
@@ -48,20 +47,25 @@ namespace PetStoreInventory
                     if (productType.ToLower() == "cat" || productType.ToLower() == "dog")
                     {
                         logging.Logger("Enter your product in JSON format");
-                        var userInputAsJson = Console.ReadLine();
+                        var userInputAsJson = dataInput.AskForUserInput();
 
-                        //JsonObject jsonParsed = UserInputCheck.JsonCheck(userInputAsJson);
-                        //if (jsonParsed != null) 
-                        //{
-                            if (productType.ToLower() == "cat")
-                            {
-                                productLogic.AddProduct(JsonSerializer.Deserialize<CatFood>(userInputAsJson));
-                            }
-                            else if (productType.ToLower() == "dog")
-                            {
-                                productLogic.AddProduct(JsonSerializer.Deserialize<CatFood>(userInputAsJson));
-                            }
-                        //}
+                        //This is gross but I can't think of another solution because of how the objects work
+                        var JsonCheckObject = productLogic.JsonValidationCheck(userInputAsJson);
+
+                        //You should be able to insert a Generic into the Deserializer
+                        if (productType.ToLower() == "cat" && JsonCheckObject != null)
+                        {
+                            productLogic.AddProduct(JsonSerializer.Deserialize<CatFood>(userInputAsJson));
+                        }
+                        else if (productType.ToLower() == "dog" && JsonCheckObject != null)
+                        {
+                            productLogic.AddProduct(JsonSerializer.Deserialize<DogLeash>(userInputAsJson));
+                        }
+                        else
+                        {
+                            logging.Logger("Sorry that doesn't appear to be valid JSON. It should be formatted like below.");
+                            logging.Logger("{\"Price\": 58.89, \"Name\": \"Special dog leash\", \"Quantity\": 23, \"Description\": \"Magical leash that will help your dog not pull hard when going on walks\", \"Material\": \"Classified\", \"LengthInches\": 12}\n");
+                        }
                     }
                     else
                     {
@@ -74,8 +78,8 @@ namespace PetStoreInventory
                 }
                 else if (userInput == "6")
                 {
-                    var product = productLogic.GetAllProducts();
-                    logging.Logger(JsonSerializer.Serialize(product) + "\n");
+                    var product = productLogic.GetAllProductsAsJSON();
+                    logging.Logger(uiLogic.OutputJsonToConsoleClean(product));
                 }
                 else if (userInput == "7")
                 {
@@ -106,6 +110,7 @@ namespace PetStoreInventory
         static IServiceProvider CreateServiceCollection()
         {
             return new ServiceCollection()
+                //AddSingleton instead??
                 .AddTransient<IProductLogic, ProductLogic>()
                 .BuildServiceProvider();
         }
