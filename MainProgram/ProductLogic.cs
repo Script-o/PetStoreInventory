@@ -49,12 +49,6 @@ namespace PetStoreInventory
         }
         public List<Product> GetAllProductsAsJSON()
         {
-            foreach (Product product in _products)
-            {
-                Console.WriteLine(product);
-                Console.ReadLine();
-            }
-
             return _products;
         }
 
