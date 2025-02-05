@@ -9,8 +9,5 @@ namespace PetStoreInventory
     public interface IUILogic
     {
         public Product AddProductMenu();
-        public void ViewProductMenu(IProductLogic productLogic);
-
-        public string OutputJsonToConsoleClean(List<Product> _products);
     }
 }

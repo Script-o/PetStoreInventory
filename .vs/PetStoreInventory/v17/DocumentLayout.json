@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\PROJECTS\\PetStoreInventory\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9E12D12-A3A9-4CE7-A9A5-0F5B508A3444}|PetStoreInventoryTest\\PetStoreInventoryTest.csproj|d:\\projects\\petstoreinventory\\petstoreinventorytest\\userinputchecktest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9E12D12-A3A9-4CE7-A9A5-0F5B508A3444}|PetStoreInventoryTest\\PetStoreInventoryTest.csproj|solutionrelative:petstoreinventorytest\\userinputchecktest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BAC15490-BC5D-4CEA-A06F-16B7832FD4A1}|PetStore.Data\\PetStore.Data.csproj|d:\\projects\\petstoreinventory\\petstore.data\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAC15490-BC5D-4CEA-A06F-16B7832FD4A1}|PetStore.Data\\PetStore.Data.csproj|solutionrelative:petstore.data\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9E12D12-A3A9-4CE7-A9A5-0F5B508A3444}|PetStoreInventoryTest\\PetStoreInventoryTest.csproj|d:\\projects\\petstoreinventory\\petstoreinventorytest\\productlogictest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9E12D12-A3A9-4CE7-A9A5-0F5B508A3444}|PetStoreInventoryTest\\PetStoreInventoryTest.csproj|solutionrelative:petstoreinventorytest\\productlogictest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60BD4608-41FD-4980-BEC0-360EBB0008BC}|PetStoreInventory\\PetStoreInventory.csproj|d:\\projects\\petstoreinventory\\petstoreinventory\\productlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60BD4608-41FD-4980-BEC0-360EBB0008BC}|PetStoreInventory\\PetStoreInventory.csproj|solutionrelative:petstoreinventory\\productlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60BD4608-41FD-4980-BEC0-360EBB0008BC}|PetStoreInventory\\PetStoreInventory.csproj|d:\\projects\\petstoreinventory\\petstoreinventory\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60BD4608-41FD-4980-BEC0-360EBB0008BC}|PetStoreInventory\\PetStoreInventory.csproj|solutionrelative:petstoreinventory\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserInputCheckTest.cs",
-              "DocumentMoniker": "D:\\PROJECTS\\PetStoreInventory\\PetStoreInventoryTest\\UserInputCheckTest.cs",
-              "RelativeDocumentMoniker": "PetStoreInventoryTest\\UserInputCheckTest.cs",
-              "ToolTip": "D:\\PROJECTS\\PetStoreInventory\\PetStoreInventoryTest\\UserInputCheckTest.cs",
-              "RelativeToolTip": "PetStoreInventoryTest\\UserInputCheckTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\PetStoreInventory\\PetStoreInventory\\Program.cs",
+              "RelativeDocumentMoniker": "PetStoreInventory\\Program.cs",
+              "ToolTip": "D:\\PROJECTS\\PetStoreInventory\\PetStoreInventory\\Program.cs",
+              "RelativeToolTip": "PetStoreInventory\\Program.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T18:37:35.566Z",
+              "WhenOpened": "2025-02-05T19:43:52.145Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProductLogicTest.cs",
-              "DocumentMoniker": "D:\\PROJECTS\\PetStoreInventory\\PetStoreInventoryTest\\ProductLogicTest.cs",
-              "RelativeDocumentMoniker": "PetStoreInventoryTest\\ProductLogicTest.cs",
-              "ToolTip": "D:\\PROJECTS\\PetStoreInventory\\PetStoreInventoryTest\\ProductLogicTest.cs",
-              "RelativeToolTip": "PetStoreInventoryTest\\ProductLogicTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Title": "ProductLogic.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\PetStoreInventory\\PetStoreInventory\\ProductLogic.cs",
+              "RelativeDocumentMoniker": "PetStoreInventory\\ProductLogic.cs",
+              "ToolTip": "D:\\PROJECTS\\PetStoreInventory\\PetStoreInventory\\ProductLogic.cs",
+              "RelativeToolTip": "PetStoreInventory\\ProductLogic.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAABkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T18:36:56.041Z",
+              "WhenOpened": "2025-02-05T19:58:43.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\PetStoreInventory\\PetStore.Data\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "PetStore.Data\\ProductRepository.cs",
+              "ToolTip": "D:\\PROJECTS\\PetStoreInventory\\PetStore.Data\\ProductRepository.cs",
+              "RelativeToolTip": "PetStore.Data\\ProductRepository.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBMAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T19:54:09.94Z",
               "EditorCaption": ""
             }
           ]

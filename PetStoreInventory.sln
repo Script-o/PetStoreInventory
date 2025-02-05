@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetStoreInventory", "PetSto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetStoreInventoryTest", "PetStoreInventoryTest\PetStoreInventoryTest.csproj", "{A9E12D12-A3A9-4CE7-A9A5-0F5B508A3444}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetStore.Data", "PetStore.Data\PetStore.Data.csproj", "{BAC15490-BC5D-4CEA-A06F-16B7832FD4A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A9E12D12-A3A9-4CE7-A9A5-0F5B508A3444}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9E12D12-A3A9-4CE7-A9A5-0F5B508A3444}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9E12D12-A3A9-4CE7-A9A5-0F5B508A3444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAC15490-BC5D-4CEA-A06F-16B7832FD4A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAC15490-BC5D-4CEA-A06F-16B7832FD4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAC15490-BC5D-4CEA-A06F-16B7832FD4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAC15490-BC5D-4CEA-A06F-16B7832FD4A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
